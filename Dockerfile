@@ -8,9 +8,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY app ./app
 COPY data ./data
 
-ENV DATA_DIR=/app/data
-ENV SECRET_KEY=EldenRing-Render-Secret-2024
+ENV DATA_DIR=/data
+ENV SECRET_KEY=CHANGE_THIS_SECRET
 
-EXPOSE $PORT
+EXPOSE 8000
 
-CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
