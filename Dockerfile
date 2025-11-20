@@ -11,5 +11,5 @@ COPY data ./data
 ENV DATA_DIR=/app/data
 ENV SECRET_KEY=CHANGE_THIS_SECRET
 
-# Cloud Run uses dynamic PORT
-CMD exec uvicorn app.main:app --host 0.0.0.0 --port $PORT
+# Railway compatibility - provide default PORT
+CMD exec uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}
